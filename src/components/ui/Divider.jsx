@@ -12,7 +12,11 @@ const Divider = () => {
         }}
       >
         <Box sx={{ width: "154px", borderTop: "1px solid #161616" }} />
-        <Typography sx={{ fontSize: "13px", fontWeight: "700" }}>or</Typography>
+        <Typography
+          sx={{ fontSize: "13px", fontWeight: "700", lineHeight: "21px" }}
+        >
+          or
+        </Typography>
         <Box sx={{ width: "154px", borderTop: "1px solid #161616" }} />
       </Box>
     </Box>

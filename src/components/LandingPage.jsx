@@ -1,11 +1,11 @@
-import React from "react";
 import { Box, Button, Typography } from "@mui/material";
 import Image from "next/image";
-import moneyLend from "../assets/moneyFinalized.svg";
-import Navbar from "./ui/Navbar";
-import Footer from "./ui/Footer";
 import Link from "next/link";
+import React from "react";
 import { useSelector } from "react-redux";
+import moneyLend from "../assets/moneyFinalized.svg";
+import Footer from "./ui/Footer";
+import Navbar from "./ui/Navbar";
 const LandingPage = () => {
   const userBrand = useSelector(
     (state) => state.userDataInfo.userData.branding
@@ -93,7 +93,7 @@ const LandingPage = () => {
           <Button
             sx={{
               background: "#008350",
-              width: "330px",
+              width: { xs: "320px", sm: "330px" },
               height: "50px",
               marginTop: "17px",
               marginBottom: "14px",

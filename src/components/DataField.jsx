@@ -1,8 +1,8 @@
-import React from "react";
 import { Box, Typography } from "@mui/material";
+import React from "react";
 import { AiOutlineCamera, AiOutlineCloudUpload } from "react-icons/ai";
-import Divider from "./ui/Divider";
 import { useSelector } from "react-redux";
+import Divider from "./ui/Divider";
 const DataField = () => {
   const docsFields = useSelector((state) => state.userDataInfo.requiredDocs);
   const fields = useSelector(
@@ -42,7 +42,13 @@ const DataField = () => {
                         alignItems: "center",
                       }}
                     >
-                      <Typography>
+                      <Typography
+                        sx={{
+                          fontWeight: "500",
+                          fontSize: "14px",
+                          lineHeight: "21px",
+                        }}
+                      >
                         {activeField.requiredDocuments[doc].message
                           ? activeField.requiredDocuments[doc].message
                           : docsFields[doc]}

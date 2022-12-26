@@ -19,7 +19,7 @@ const Footer = () => {
             textAlign="center"
             fontSize="11px"
           >
-            2023 DriveTime
+            {new Date().getFullYear() + 1} DriveTime
           </Typography>
           <Typography
             color="#F7F7F7"
