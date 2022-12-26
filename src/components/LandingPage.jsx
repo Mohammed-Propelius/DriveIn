@@ -58,7 +58,7 @@ const LandingPage = () => {
       <Box sx={{ display: "flex", justifyContent: "center" }} id="document-box">
         <Box
           sx={{
-            borderRadius: "4px",
+            borderRadius: "12px",
             boxSizing: " borderBox",
             border: "2px solid #F6F6F6",
             width: "330px",
@@ -127,9 +127,9 @@ const LandingPage = () => {
             GLBA Privacy Policy
           </Link>
           and
-          <a href="#" style={{ color: "#008350" }}>
+          <Link href="#" style={{ color: "#008350" }}>
             Terms of Use.
-          </a>
+          </Link>
         </Typography>
         <Typography
           sx={{

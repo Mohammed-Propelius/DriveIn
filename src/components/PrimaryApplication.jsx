@@ -59,7 +59,7 @@ const PrimaryApplication = () => {
               fontWeight: "700",
               fontSize: "24px",
               lineHeight: "30px",
-              textAlign: "center",
+              marginLeft: "24px",
             }}
           >
             Upload or snap photos of your documents
@@ -71,7 +71,7 @@ const PrimaryApplication = () => {
               display: "flex",
               flexWrap: "wrap",
               gap: "4px",
-              padding: "2px 8px",
+              marginLeft: "24px",
             }}
           >
             {Object.keys(chipData).map((key) => (
@@ -131,21 +131,30 @@ const PrimaryApplication = () => {
             <Box
               sx={{
                 width: "100%",
-                backgroundColor: "#6666",
+                backgroundColor: "#F6F6F6",
                 height: "10px",
               }}
             />
           </Box>
           <Box id="notReady-text" sx={{ paddingTop: "32px" }}>
-            <Typography sx={{ textAlign: "center", fontSize: "400" }}>
+            <Typography
+              sx={{ textAlign: "center", fontWeight: "400", fontSize: "11px" }}
+            >
               Not ready? You can upload later
             </Typography>
           </Box>
           {/* ------------ Skip Section --------------- */}
           <ButtonSecondary handleClick={skipSection} />
           {/* ------------ Skip Section --------------- */}
-          <Box sx={{ marginTop: "35px", marginBottom: "52px" }}>
-            <Typography sx={{ textAlign: "center" }}>
+          <Box sx={{ marginTop: "35px", marginBottom: "58px" }}>
+            <Typography
+              sx={{
+                textAlign: "center",
+                fontWeight: "400",
+                fontSize: "11px",
+                lineHeight: "18px",
+              }}
+            >
               Call {userBrand.name} if you have any questions
             </Typography>
             <Typography

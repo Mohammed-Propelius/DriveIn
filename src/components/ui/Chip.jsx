@@ -6,7 +6,7 @@ const Chip = ({ title, status, active, handleClick }) => {
   return (
     <>
       <Box id="box-chip" sx={{ position: "relative", marginTop: "17px" }}>
-        <Status status={status} active={active}  />
+        <Status status={status} active={active} />
         <Box
           sx={{
             minWidth: "82px",
@@ -27,7 +27,7 @@ const Chip = ({ title, status, active, handleClick }) => {
               textTransform: "capitalize",
             }}
           >
-            {title}
+            {title.replace("ssn", "SSN")}
           </Typography>
         </Box>
       </Box>
