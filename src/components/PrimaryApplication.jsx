@@ -60,6 +60,7 @@ const PrimaryApplication = () => {
               fontSize: "24px",
               lineHeight: "30px",
               marginLeft: "24px",
+              marginBottom: "17px",
             }}
           >
             Upload or snap photos of your documents
