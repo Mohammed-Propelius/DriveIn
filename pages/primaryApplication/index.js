@@ -1,9 +1,8 @@
-import LandingPage from "../src/components/LandingPage";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import userDataSlice, {
-  userInformation,
-} from "../src/redux/Slice/userDataSlice";
-import { useEffect } from "react";
+import PrimaryApplication from "../../src/components/PrimaryApplication";
+import { userInformation } from "../../src/redux/Slice/userDataSlice";
+
 export async function getStaticProps() {
   const data = await fetch(
     "https://ad6a486f-5cdb-4bf2-83bb-e97c231a02e6.mock.pstmn.io/applicant"
@@ -14,14 +13,16 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home(props) {
+const primaryApplication = (props) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(userInformation.allCollectionUser(props.getUserData));
   }, []);
   return (
     <div>
-      <LandingPage />
+      <PrimaryApplication />
     </div>
   );
-}
+};
+
+export default primaryApplication;
