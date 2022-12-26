@@ -17,7 +17,7 @@ const DataField = () => {
       {activeField?.requiredDocuments &&
         Object.keys(activeField.requiredDocuments).map(
           (doc, amountOfOccurance) => (
-            <>
+            <Box key={amountOfOccurance}>
               <Box sx={{ marginTop: "20px", marginBottom: "12px" }}>
                 <Typography sx={{ fontSize: "16px", fontWeight: "700" }}>
                   Your {docsFields[doc]}
@@ -63,7 +63,7 @@ const DataField = () => {
                 Object.keys(activeField.requiredDocuments).length - 1 && (
                 <Divider />
               )}
-            </>
+            </Box>
           )
         )}
     </Box>

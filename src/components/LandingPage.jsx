@@ -50,8 +50,8 @@ const LandingPage = () => {
               marginRight: "24px",
             }}
           >
-            Your loan is almost ready! Have your documents ready so that
-            DriveTime can finalize your loan.
+            Your loan is almost ready! Have your documents ready so that{" "}
+            {userBrand.name} can finalize your loan.
           </Typography>
         </Box>
       </Box>
@@ -79,7 +79,8 @@ const LandingPage = () => {
                     key={documentsReq}
                     style={{ textTransform: "capitalize" }}
                   >
-                    {documentsReq} documents
+                    {documentsReq && documentsReq.replaceAll("ssn", "SSN")}{" "}
+                    documents
                   </li>
                 ))}
               </ul>
@@ -122,9 +123,9 @@ const LandingPage = () => {
           }}
         >
           By clicking Continue, I agree to DriveTime Automotive Group Inc.’s
-          <a href="#" style={{ color: "#008350" }}>
+          <Link href="#" style={{ color: "#008350" }}>
             GLBA Privacy Policy
-          </a>
+          </Link>
           and
           <a href="#" style={{ color: "#008350" }}>
             Terms of Use.
