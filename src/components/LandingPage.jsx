@@ -37,7 +37,10 @@ const LandingPage = () => {
           Help {userBrand.name} finalize your application.
         </Typography>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <Image src={moneyLend} alt="Money Lender" />
+          <Image
+            src={moneyLend}
+            alt="Money Lender"
+          />
         </Box>
         <Box>
           <Typography
