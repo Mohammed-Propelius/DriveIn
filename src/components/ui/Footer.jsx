@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 
-const Footer = () => {
+const Footer = ({ userName }) => {
   return (
     <>
       <Box>
@@ -9,17 +9,17 @@ const Footer = () => {
           sx={{
             width: "100%",
             height: "90px",
-            backgroundColor: "#000",
+            backgroundColor: "#222222",
             padding: "17px 30px",
           }}
         >
           <Typography
             color="#F7F7F7"
-            fontWeight="400"
+            fontWeight="100"
             textAlign="center"
             fontSize="11px"
           >
-            {new Date().getFullYear() + 1} DriveTime
+            {new Date().getFullYear() + 1} {userName.branding.name}
           </Typography>
           <Typography
             color="#F7F7F7"

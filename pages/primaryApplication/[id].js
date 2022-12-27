@@ -1,13 +1,14 @@
+import axios from "axios";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import PrimaryApplication from "../../src/components/PrimaryApplication";
 import { userInformation } from "../../src/redux/Slice/userDataSlice";
 
-export async function getStaticProps() {
-  const data = await fetch(
-    "https://ad6a486f-5cdb-4bf2-83bb-e97c231a02e6.mock.pstmn.io/applicant"
+export async function getServerSideProps() {
+  const res = await axios.get(
+    "https://9504fba6-d1ff-44a8-82a8-364b659e6416.mock.pstmn.io/test"
   );
-  const response = await data.json();
+  const response = await res.data;
   return {
     props: { getUserData: response },
   };
@@ -20,7 +21,7 @@ const primaryApplication = (props) => {
   }, []);
   return (
     <div>
-      <PrimaryApplication />
+      <PrimaryApplication getUserData={props.getUserData}/>
     </div>
   );
 };

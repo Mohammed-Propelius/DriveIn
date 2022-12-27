@@ -104,89 +104,89 @@ const userDataSlice = createSlice({
         verifications: {
           income: {
             active: true,
-            status: allCollectionUser.verifications.income.status,
+            status: allCollectionUser.verifications?.income.status,
             requiredDocuments: {
               paystub: {
                 numRequired:
-                  allCollectionUser.verifications.income.requiredDocuments
+                  allCollectionUser.verifications?.income.requiredDocuments
                     .paystub.numRequired,
                 message:
-                  allCollectionUser.verifications.income.requiredDocuments
+                  allCollectionUser.verifications?.income.requiredDocuments
                     .paystub.message,
                 status:
-                  allCollectionUser.verifications.income.requiredDocuments
+                  allCollectionUser.verifications?.income.requiredDocuments
                     .paystub.status,
               },
               w2: {
                 status:
-                  allCollectionUser.verifications.income.requiredDocuments.w2,
+                  allCollectionUser.verifications?.income.requiredDocuments.w2,
               },
               bankStatement: {
                 numRequired:
-                  allCollectionUser.verifications.income.requiredDocuments
+                  allCollectionUser.verifications?.income.requiredDocuments
                     .bankStatement.numRequired,
                 message:
-                  allCollectionUser.verifications.income.requiredDocuments
+                  allCollectionUser.verifications?.income.requiredDocuments
                     .bankStatement.message,
                 status:
-                  allCollectionUser.verifications.income.requiredDocuments
+                  allCollectionUser.verifications?.income.requiredDocuments
                     .bankStatement.status,
               },
             },
           },
           identity: {
             active: false,
-            status: allCollectionUser.verifications.identity.status,
+            status: allCollectionUser.verifications?.identity.status,
             requiredDocuments: {
               driversLicence: {
                 status:
-                  allCollectionUser.verifications.identity.requiredDocuments
+                  allCollectionUser.verifications?.identity.requiredDocuments
                     .driversLicence.status,
               },
               utilityBill: {
                 status:
-                  allCollectionUser.verifications.identity.requiredDocuments
+                  allCollectionUser.verifications?.identity.requiredDocuments
                     .utilityBill.status,
               },
               phoneBill: {
                 status:
-                  allCollectionUser.verifications.identity.requiredDocuments
+                  allCollectionUser.verifications?.identity.requiredDocuments
                     .phoneBill.status,
               },
             },
           },
           residence: {
             active: false,
-            status: allCollectionUser.verifications.residence.status,
+            status: allCollectionUser.verifications?.residence.status,
             requiredDocuments: {
               utilityBill: {
                 status:
-                  allCollectionUser.verifications.residence.requiredDocuments
+                  allCollectionUser.verifications?.residence.requiredDocuments
                     .utilityBill.status,
               },
             },
           },
           ssn: {
             active: false,
-            status: allCollectionUser.verifications.ssn.status,
+            status: allCollectionUser.verifications?.ssn.status,
             requiredDocuments: {
               ssnCard: {
                 status:
-                  allCollectionUser.verifications.ssn.requiredDocuments.ssnCard,
+                  allCollectionUser.verifications?.ssn.requiredDocuments.ssnCard,
               },
             },
           },
         },
         branding: {
-          type: allCollectionUser.branding.type,
-          phone: allCollectionUser.branding.phone,
-          latitude: allCollectionUser.branding.latitude,
-          longitude: allCollectionUser.branding.longitude,
-          name: allCollectionUser.branding.name,
-          fullAddress: allCollectionUser.branding.fullAddress,
-          logo: allCollectionUser.branding.logo,
+          type: allCollectionUser.branding?.type,
+          phone: allCollectionUser.branding?.phone,
+          latitude: allCollectionUser.branding?.latitude,
+          longitude: allCollectionUser.branding?.longitude,
+          name: allCollectionUser.branding?.name,
+          fullAddress: allCollectionUser.branding?.fullAddress,
+          logo: allCollectionUser.branding?.logo,
           theme: {
-            primaryColor: allCollectionUser.branding.theme.primaryColor,
+            primaryColor: allCollectionUser.branding?.theme.primaryColor,
           },
         },
       };

@@ -1,16 +1,19 @@
 import { Box, Typography } from "@mui/material";
+import { useRouter } from "next/router";
 import React from "react";
 import { AiOutlineCamera, AiOutlineCloudUpload } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import Divider from "./ui/Divider";
-const DataField = () => {
+const DataField = ({ getDocs }) => {
+  const router = useRouter();
+  const { id } = router.query;
   const docsFields = useSelector((state) => state.userDataInfo.requiredDocs);
-  const fields = useSelector(
-    (state) => state.userDataInfo.userData.verifications
+  const fields = getDocs?.verifications;
+  console.log(getDocs?.verifications, "props -->");
+  const activeField = Object.values(fields).find((fieldsActive) =>
+    console.log(fieldsActive, "acc")
   );
-  const activeField = Object.values(fields).find(
-    (fieldsActive) => fieldsActive.active
-  );
+
 
   return (
     <Box id="data-field--details">

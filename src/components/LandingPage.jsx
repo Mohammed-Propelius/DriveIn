@@ -2,17 +2,10 @@ import { Box, Button, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { useSelector } from "react-redux";
 import moneyLend from "../assets/moneyFinalized.svg";
 import Footer from "./ui/Footer";
 import Navbar from "./ui/Navbar";
-const LandingPage = () => {
-  const userBrand = useSelector(
-    (state) => state.userDataInfo.userData.branding
-  );
-  const userDocument = useSelector(
-    (state) => state.userDataInfo.userData.verifications
-  );
+const LandingPage = ({ getUserData }) => {
   const transformPhoneNumber = (num) => {
     const phoneNumber = num.replace("+1", "");
     return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(
@@ -20,6 +13,12 @@ const LandingPage = () => {
       6
     )}-${phoneNumber.slice(6, 10)}`;
   };
+
+  const pageParams = Object.keys(getUserData?.verifications).map(
+    (documentsReq) => documentsReq
+  );
+
+  console.log(pageParams, "PAGE");
 
   return (
     <Box>
@@ -32,15 +31,13 @@ const LandingPage = () => {
             fontStyle: "normal",
             marginLeft: "24px",
             marginRight: "32px",
+            color: "#222222",
           }}
         >
-          Help {userBrand.name} finalize your application.
+          Help {getUserData?.branding.name} finalize your application.
         </Typography>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <Image
-            src={moneyLend}
-            alt="Money Lender"
-          />
+          <Image src={moneyLend} alt="Money Lender" />
         </Box>
         <Box>
           <Typography
@@ -51,10 +48,11 @@ const LandingPage = () => {
               marginBottom: "17px",
               marginLeft: "24px",
               marginRight: "24px",
+              color: "#222222",
             }}
           >
             Your loan is almost ready! Have your documents ready so that{" "}
-            {userBrand.name} can finalize your loan.
+            {getUserData?.branding.name} can finalize your loan.
           </Typography>
         </Box>
       </Box>
@@ -65,7 +63,7 @@ const LandingPage = () => {
             boxSizing: " borderBox",
             border: "2px solid #F6F6F6",
             width: "330px",
-            height: "100%",
+            height: "197px",
           }}
         >
           <Box sx={{ marginLeft: "30px" }}>
@@ -74,10 +72,12 @@ const LandingPage = () => {
                 fontWeight: "600",
                 fontSize: "14px",
                 lineHeight: "30px",
+                textAlign: "left",
+                padding: "25px 12px",
               }}
             >
               <ul>
-                {Object.keys(userDocument).map((documentsReq) => (
+                {Object.keys(getUserData?.verifications).map((documentsReq) => (
                   <li
                     key={documentsReq}
                     style={{ textTransform: "capitalize" }}
@@ -92,7 +92,7 @@ const LandingPage = () => {
         </Box>
       </Box>
       <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <Link href="/primaryApplication">
+        <Link href={`/primaryApplication/${pageParams[0]}`}>
           <Button
             sx={{
               background: "#008350",
@@ -125,11 +125,11 @@ const LandingPage = () => {
             marginRight: "32px",
           }}
         >
-          By clicking Continue, I agree to DriveTime Automotive Group Inc.’s
+          By clicking Continue, I agree to DriveTime Automotive Group Inc.’s{" "}
           <Link href="#" style={{ color: "#008350" }}>
-            GLBA Privacy Policy
+            GLBA Privacy Policy{" "}
           </Link>
-          and
+          and{" "}
           <Link href="#" style={{ color: "#008350" }}>
             Terms of Use.
           </Link>
@@ -142,7 +142,7 @@ const LandingPage = () => {
             color: "#888888",
           }}
         >
-          Please call {userBrand.name} if you have any questions
+          Please call {getUserData?.branding.name} if you have any questions
         </Typography>
         <Typography
           sx={{
@@ -152,10 +152,10 @@ const LandingPage = () => {
             textAlign: "center",
           }}
         >
-          {transformPhoneNumber(userBrand.phone)}
+          {transformPhoneNumber(getUserData?.branding.phone)}
         </Typography>
       </Box>
-      <Footer />
+      <Footer userName={getUserData} />
     </Box>
   );
 };

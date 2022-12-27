@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material";
+import { Router, useRouter } from "next/router";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { userInformation } from "../redux/Slice/userDataSlice";
@@ -8,25 +9,23 @@ import Chip from "./ui/Chip";
 import Footer from "./ui/Footer";
 import Navbar from "./ui/Navbar";
 
-const PrimaryApplication = () => {
+const PrimaryApplication = ({ getUserData }) => {
   const dispatch = useDispatch();
+  const router = useRouter();
 
-  const chipData = useSelector(
-    (state) => state.userDataInfo.userData.verifications
-  );
+  const chipData = getUserData?.verifications;
 
-  const userBrand = useSelector(
-    (state) => state.userDataInfo.userData.branding
-  );
+  const userBrand = getUserData?.branding;
 
   const transformPhoneNumber = (num) => {
-    const phoneNumber = num.replace("+1", "");
-    return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(
+    const phoneNumber = num?.replace("+1", "");
+    return `(${phoneNumber?.slice(0, 3)}) ${phoneNumber?.slice(
       3,
       6
-    )}-${phoneNumber.slice(6, 10)}`;
+    )}-${phoneNumber?.slice(6, 10)}`;
   };
 
+  console.log(chipData);
   const getNextSectionIndex = () => {
     const localSections = Object.keys(chipData);
     const nextSectionIndex =
@@ -39,6 +38,7 @@ const PrimaryApplication = () => {
   };
 
   const handleClick = (title, status) => {
+    router.push(`/primaryApplication/${title}`);
     dispatch(userInformation.resetData({ title, status }));
   };
 
@@ -124,7 +124,7 @@ const PrimaryApplication = () => {
 
             <Box id="data-fields">
               {/* ---------- DataFields */}
-              <DataField />
+              <DataField getDocs={getUserData} />
               {/* ---------- DataFields */}
             </Box>
           </Box>
@@ -170,7 +170,7 @@ const PrimaryApplication = () => {
             </Typography>
           </Box>
         </Box>
-        <Footer />
+        <Footer userName={getUserData} />
       </Box>
     </Box>
   );

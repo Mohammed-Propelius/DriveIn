@@ -1,27 +1,20 @@
+import axios from "axios";
 import LandingPage from "../src/components/LandingPage";
-import { useDispatch } from "react-redux";
-import userDataSlice, {
-  userInformation,
-} from "../src/redux/Slice/userDataSlice";
-import { useEffect } from "react";
-export async function getStaticProps() {
-  const data = await fetch(
-    "https://ad6a486f-5cdb-4bf2-83bb-e97c231a02e6.mock.pstmn.io/applicant"
+
+export async function getServerSideProps() {
+  const res = await axios.get(
+    "https://9504fba6-d1ff-44a8-82a8-364b659e6416.mock.pstmn.io/test"
   );
-  const response = await data.json();
+  const response = await res.data;
   return {
     props: { getUserData: response },
   };
 }
 
 export default function Home(props) {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(userInformation.allCollectionUser(props.getUserData));
-  }, []);
   return (
     <div>
-      <LandingPage />
+      <LandingPage getUserData={props.getUserData} />
     </div>
   );
 }
