@@ -4,22 +4,14 @@ import React from "react";
 import { AiOutlineCamera, AiOutlineCloudUpload } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import Divider from "./ui/Divider";
+import { docsFields } from "../utils/docFieldsRegex";
+
 const DataField = () => {
   const router = useRouter();
   const { id } = router.query;
   const fields = useSelector(
     (state) => state.userDataInfo.userData.verifications
   );
-  const docsFields = (text) => {
-    const formatText =
-      text[0].toUpperCase() +
-      text
-        .substring(1)
-        .replace(/([a-z])([A-Z])/g, "$1 $2")
-        .trim();
-    return formatText;
-  };
-
   const activeField = fields[id];
 
   return (

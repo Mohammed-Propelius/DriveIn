@@ -6,6 +6,7 @@ import Navbar from "./ui/Navbar";
 import MoneyFinal from "../../public/moneyFinal.svg";
 import Image from "next/image";
 import { useSelector } from "react-redux";
+import { transformPhoneNumber } from "../utils/transformNumber";
 const LandingPage = () => {
   const userBrand = useSelector(
     (state) => state.userDataInfo.userData.branding
@@ -13,14 +14,6 @@ const LandingPage = () => {
   const userDocument = useSelector(
     (state) => state.userDataInfo.userData.verifications
   );
-  const transformPhoneNumber = (num) => {
-    const phoneNumber = num.replace("+1", "");
-    return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(
-      3,
-      6
-    )}-${phoneNumber.slice(6, 10)}`;
-  };
-
   const pageParams = Object.keys(userDocument).map((documentsReq) => {
     return documentsReq;
   });

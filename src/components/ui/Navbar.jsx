@@ -53,7 +53,9 @@ const Navbar = () => {
         ) : (
           " "
         )}
-        <Image src={DriveTime} alt="DriveTime Image" />
+        <Box sx={{ position: "relative", width: "80px", height: "42px" }}>
+          <Image src={DriveTime} alt="DriveTime Image" />
+        </Box>
       </Box>
     </Box>
   );

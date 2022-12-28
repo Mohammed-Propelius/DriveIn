@@ -74,15 +74,6 @@ const initialState = {
       },
     },
   },
-  requiredDocs: {
-    bankStatement: "Bank Statement",
-    paystub: "Pay Stub",
-    w2: "W2",
-    driversLicence: "Drivers Licence",
-    utilityBill: "Utility Bill",
-    phoneBill: "Phone Bill",
-    ssnCard: "SSN Card",
-  },
 };
 
 const userDataSlice = createSlice({

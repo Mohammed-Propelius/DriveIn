@@ -7,7 +7,7 @@ import ButtonSecondary from "./ui/Button";
 import Chip from "./ui/Chip";
 import Footer from "./ui/Footer";
 import Navbar from "./ui/Navbar";
-
+import { transformPhoneNumber } from "../utils/transformNumber";
 const PrimaryApplication = () => {
   const router = useRouter();
   const chipData = useSelector(
@@ -17,14 +17,6 @@ const PrimaryApplication = () => {
     (state) => state.userDataInfo.userData.branding
   );
   const { id } = router.query;
-
-  const transformPhoneNumber = (num) => {
-    const phoneNumber = num?.replace("+1", "");
-    return `(${phoneNumber?.slice(0, 3)}) ${phoneNumber?.slice(
-      3,
-      6
-    )}-${phoneNumber?.slice(6, 10)}`;
-  };
 
   const getNextSectionIndex = () => {
     const nextSectionIndex =
