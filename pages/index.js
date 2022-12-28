@@ -1,5 +1,8 @@
 import axios from "axios";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import LandingPage from "../src/components/LandingPage";
+import { userInformation } from "../src/redux/Slice/userDataSlice";
 
 export async function getServerSideProps() {
   const res = await axios.get(
@@ -12,9 +15,13 @@ export async function getServerSideProps() {
 }
 
 export default function Home(props) {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(userInformation.allCollectionUser(props.getUserData));
+  }, []);
   return (
     <div>
-      <LandingPage getUserData={props.getUserData} />
+      <LandingPage />
     </div>
   );
 }

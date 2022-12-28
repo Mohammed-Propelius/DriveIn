@@ -4,11 +4,13 @@ import React from "react";
 import { AiOutlineCamera, AiOutlineCloudUpload } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import Divider from "./ui/Divider";
-const DataField = ({ getDocs }) => {
+const DataField = () => {
   const router = useRouter();
   const { id } = router.query;
+  const fields = useSelector(
+    (state) => state.userDataInfo.userData.verifications
+  );
   const docsFields = useSelector((state) => state.userDataInfo.requiredDocs);
-  const fields = getDocs?.verifications;
   const activeField = fields[id];
 
   return (

@@ -5,7 +5,14 @@ import Footer from "./ui/Footer";
 import Navbar from "./ui/Navbar";
 import MoneyFinal from "../../public/moneyFinal.svg";
 import Image from "next/image";
-const LandingPage = ({ getUserData }) => {
+import { useSelector } from "react-redux";
+const LandingPage = () => {
+  const userBrand = useSelector(
+    (state) => state.userDataInfo.userData.branding
+  );
+  const userDocument = useSelector(
+    (state) => state.userDataInfo.userData.verifications
+  );
   const transformPhoneNumber = (num) => {
     const phoneNumber = num.replace("+1", "");
     return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(
@@ -14,9 +21,9 @@ const LandingPage = ({ getUserData }) => {
     )}-${phoneNumber.slice(6, 10)}`;
   };
 
-  const pageParams = Object.keys(getUserData?.verifications).map(
-    (documentsReq) => documentsReq
-  );
+  const pageParams = Object.keys(userDocument).map((documentsReq) => {
+    return documentsReq;
+  });
 
   return (
     <Box>
@@ -32,7 +39,7 @@ const LandingPage = ({ getUserData }) => {
             color: "#222222",
           }}
         >
-          Help {getUserData?.branding.name} finalize your application.
+          Help {userBrand.name} finalize your application.
         </Typography>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <Image src={MoneyFinal} alt="Money Lender" />
@@ -50,7 +57,7 @@ const LandingPage = ({ getUserData }) => {
             }}
           >
             Your loan is almost ready! Have your documents ready so that{" "}
-            {getUserData?.branding.name} can finalize your loan.
+            {userBrand.name} can finalize your loan.
           </Typography>
         </Box>
       </Box>
@@ -72,11 +79,11 @@ const LandingPage = ({ getUserData }) => {
                 lineHeight: "28px",
                 textAlign: "left",
                 padding: "25px 12px",
-                color:"#161616"
+                color: "#161616",
               }}
             >
               <ul>
-                {Object.keys(getUserData?.verifications).map((documentsReq) => (
+                {Object.keys(userDocument).map((documentsReq) => (
                   <li
                     key={documentsReq}
                     style={{ textTransform: "capitalize" }}
@@ -141,7 +148,7 @@ const LandingPage = ({ getUserData }) => {
             color: "#888888",
           }}
         >
-          Please call {getUserData?.branding.name} if you have any questions
+          Please call {userBrand.name} if you have any questions
         </Typography>
         <Typography
           sx={{
@@ -151,10 +158,10 @@ const LandingPage = ({ getUserData }) => {
             textAlign: "center",
           }}
         >
-          {transformPhoneNumber(getUserData?.branding.phone)}
+          {transformPhoneNumber(userBrand.phone)}
         </Typography>
       </Box>
-      <Footer userName={getUserData} />
+      <Footer />
     </Box>
   );
 };

@@ -1,7 +1,12 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
+import { useSelector } from "react-redux";
 
-const Footer = ({ userName }) => {
+const Footer = () => {
+  const userBrand = useSelector(
+    (state) => state.userDataInfo.userData.branding
+  );
+  console.log(userBrand.name);
   return (
     <>
       <Box>
@@ -19,7 +24,7 @@ const Footer = ({ userName }) => {
             textAlign="center"
             fontSize="11px"
           >
-            {new Date().getFullYear() + 1} {userName.branding.name}
+            {new Date().getFullYear() + 1} {userBrand?.name}
           </Typography>
           <Typography
             color="#F7F7F7"
