@@ -69,9 +69,10 @@ const LandingPage = ({ getUserData }) => {
               sx={{
                 fontWeight: "600",
                 fontSize: "14px",
-                lineHeight: "30px",
+                lineHeight: "28px",
                 textAlign: "left",
                 padding: "25px 12px",
+                color:"#161616"
               }}
             >
               <ul>
@@ -113,7 +114,7 @@ const LandingPage = ({ getUserData }) => {
       <Box id="contact-driver" sx={{ marginBottom: "52px" }}>
         <Typography
           sx={{
-            fontWeight: "700",
+            fontWeight: "400",
             fontSize: "11px",
             lineHeight: "18px",
             textAlign: "center",
