@@ -16,9 +16,11 @@ export async function getServerSideProps() {
 
 const primaryApplication = (props) => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(userInformation.allCollectionUser(props.getUserData));
   }, []);
+
   return (
     <div>
       <PrimaryApplication />
