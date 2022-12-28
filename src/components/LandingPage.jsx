@@ -1,8 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import moneyLend from "../assets/moneyFinalized.svg";
 import Footer from "./ui/Footer";
 import Navbar from "./ui/Navbar";
 const LandingPage = ({ getUserData }) => {
@@ -37,7 +35,7 @@ const LandingPage = ({ getUserData }) => {
           Help {getUserData?.branding.name} finalize your application.
         </Typography>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <Image src={moneyLend} alt="Money Lender" />
+          <img src="/moneyFinalized.png" alt="Money Lender" />
         </Box>
         <Box>
           <Typography

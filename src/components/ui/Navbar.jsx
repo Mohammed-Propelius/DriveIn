@@ -1,16 +1,22 @@
-import React from "react";
-import Image from "next/image";
-import driveTime from "../../assets/DriveTime_logo 3.svg";
 import { Box } from "@mui/material";
-import { HiChevronLeft } from "react-icons/hi2";
-import { useRouter } from "next/router";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import React from "react";
+import { HiChevronLeft } from "react-icons/hi2";
 
 const Navbar = () => {
   const router = useRouter();
+  const { id } = router.query;
   const arrowStyles = {
     display: "flex",
     justifyContent: "space-between",
+    width: "100%",
+    marginTop: "10px",
+    marginRight: "25px",
+  };
+  const noArrowStyle = {
+    display: "flex",
+    justifyContent: "right",
     width: "100%",
     marginTop: "10px",
     marginRight: "25px",
@@ -27,12 +33,12 @@ const Navbar = () => {
     >
       <Box
         sx={
-          router.asPath === "/primaryApplication"
+          router.asPath === `/primaryApplication/${id}`
             ? arrowStyles
-            : { marginTop: "15px", marginRight: "25px" }
+            : noArrowStyle
         }
       >
-        {router.asPath === "/primaryApplication" ? (
+        {router.asPath === `/primaryApplication/${id}` ? (
           <Link href="/">
             <HiChevronLeft
               style={{
@@ -46,7 +52,7 @@ const Navbar = () => {
         ) : (
           " "
         )}
-        <Image src={driveTime} alt="Drive Logo" />
+        <img src="/DriveTime_logo 3.png" alt="Drive Logo" />
       </Box>
     </Box>
   );

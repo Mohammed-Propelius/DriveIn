@@ -9,18 +9,14 @@ const DataField = ({ getDocs }) => {
   const { id } = router.query;
   const docsFields = useSelector((state) => state.userDataInfo.requiredDocs);
   const fields = getDocs?.verifications;
-  console.log(getDocs?.verifications, "props -->");
-  const activeField = Object.values(fields).find((fieldsActive) =>
-    console.log(fieldsActive, "acc")
-  );
-
+  const activeField = fields[id];
 
   return (
     <Box id="data-field--details">
       {activeField?.requiredDocuments &&
         Object.keys(activeField.requiredDocuments).map(
           (doc, amountOfOccurance) => (
-            <Box key={amountOfOccurance}>
+            <Box key={doc}>
               <Box sx={{ marginTop: "20px", marginBottom: "12px" }}>
                 <Typography sx={{ fontSize: "16px", fontWeight: "700" }}>
                   Your {docsFields[doc]}

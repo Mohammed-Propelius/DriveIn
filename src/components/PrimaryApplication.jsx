@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { userInformation } from "../redux/Slice/userDataSlice";
 import DataField from "./DataField";
 import ButtonSecondary from "./ui/Button";
@@ -12,6 +12,8 @@ import Navbar from "./ui/Navbar";
 const PrimaryApplication = ({ getUserData }) => {
   const dispatch = useDispatch();
   const router = useRouter();
+
+  const { id } = router.query;
 
   const chipData = getUserData?.verifications;
 
@@ -25,28 +27,19 @@ const PrimaryApplication = ({ getUserData }) => {
     )}-${phoneNumber?.slice(6, 10)}`;
   };
 
-  console.log(chipData);
   const getNextSectionIndex = () => {
-    const localSections = Object.keys(chipData);
     const nextSectionIndex =
-      (localSections.indexOf(
-        localSections.find((sectionFind) => chipData[sectionFind].active)
-      ) +
-        1) %
-      localSections.length;
-    return nextSectionIndex;
+      (Object.keys(chipData).indexOf(id) + 1) % Object.keys(chipData).length;
+    return Object.keys(chipData)[nextSectionIndex];
   };
 
-  const handleClick = (title, status) => {
-    router.push(`/primaryApplication/${title}`);
-    dispatch(userInformation.resetData({ title, status }));
+  const handleClick = (title) => {
+    router.push(router.pathname.replace("[id]", title));
   };
 
   const skipSection = () => {
     const nextSection = getNextSectionIndex();
-    dispatch(
-      userInformation.resetData({ title: Object.keys(chipData)[nextSection] })
-    );
+    router.push(router.pathname.replace("[id]", nextSection));
   };
 
   return (
@@ -80,7 +73,7 @@ const PrimaryApplication = ({ getUserData }) => {
                 key={key}
                 title={key}
                 status={chipData[key].status}
-                active={chipData[key].active}
+                active={id}
                 handleClick={() => {
                   handleClick(key, chipData[key].status);
                 }}

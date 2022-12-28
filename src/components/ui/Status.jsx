@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
-const Status = ({ status, active }) => {
+const Status = ({ status, title, active }) => {
   return (
     <Box
       sx={{
@@ -13,7 +13,7 @@ const Status = ({ status, active }) => {
         position: "absolute",
         top: "-5%",
         right: "5%",
-        display: active ? "none" : "block",
+        display: active === title ? "none" : "block",
       }}
     />
   );

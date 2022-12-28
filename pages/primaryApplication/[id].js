@@ -1,8 +1,6 @@
 import axios from "axios";
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
 import PrimaryApplication from "../../src/components/PrimaryApplication";
-import { userInformation } from "../../src/redux/Slice/userDataSlice";
 
 export async function getServerSideProps() {
   const res = await axios.get(
@@ -15,13 +13,9 @@ export async function getServerSideProps() {
 }
 
 const primaryApplication = (props) => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(userInformation.allCollectionUser(props.getUserData));
-  }, []);
   return (
     <div>
-      <PrimaryApplication getUserData={props.getUserData}/>
+      <PrimaryApplication getUserData={props.getUserData} />
     </div>
   );
 };
