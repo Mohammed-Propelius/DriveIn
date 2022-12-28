@@ -10,7 +10,16 @@ const DataField = () => {
   const fields = useSelector(
     (state) => state.userDataInfo.userData.verifications
   );
-  const docsFields = useSelector((state) => state.userDataInfo.requiredDocs);
+  const docsFields = (text) => {
+    const formatText =
+      text[0].toUpperCase() +
+      text
+        .substring(1)
+        .replace(/([a-z])([A-Z])/g, "$1 $2")
+        .trim();
+    return formatText;
+  };
+
   const activeField = fields[id];
 
   return (
@@ -21,7 +30,7 @@ const DataField = () => {
             <Box key={doc}>
               <Box sx={{ marginTop: "20px", marginBottom: "12px" }}>
                 <Typography sx={{ fontSize: "16px", fontWeight: "700" }}>
-                  Your {docsFields[doc]}
+                  Your {docsFields(doc)}
                 </Typography>
               </Box>
               <Box id="initial-box">
@@ -52,7 +61,7 @@ const DataField = () => {
                       >
                         {activeField.requiredDocuments[doc].message
                           ? activeField.requiredDocuments[doc].message
-                          : docsFields[doc]}
+                          : docsFields(doc)}
                       </Typography>
                       <Box sx={{ display: "flex", gap: "10px" }}>
                         <AiOutlineCamera
