@@ -4,7 +4,7 @@ import PrimaryApplication from "../../src/components/PrimaryApplication";
 
 export async function getServerSideProps() {
   const res = await axios.get(
-    "https://9504fba6-d1ff-44a8-82a8-364b659e6416.mock.pstmn.io/test"
+    "https://03cabffb-7207-4fe4-b49a-827411215b6d.mock.pstmn.io/test2"
   );
   const response = await res.data;
   return {
