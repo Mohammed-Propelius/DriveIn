@@ -1,9 +1,10 @@
 import { Box } from "@mui/material";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import { HiChevronLeft } from "react-icons/hi2";
-
+import DriveTime from "../../../public/DriveTime_logo 3.svg";
 const Navbar = () => {
   const router = useRouter();
   const { id } = router.query;
@@ -52,7 +53,7 @@ const Navbar = () => {
         ) : (
           " "
         )}
-        <img src="/DriveTime_logo 3.png" alt="Drive Logo" />
+        <Image src={DriveTime} alt="DriveTime Image" />
       </Box>
     </Box>
   );

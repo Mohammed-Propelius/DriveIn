@@ -3,6 +3,8 @@ import Link from "next/link";
 import React from "react";
 import Footer from "./ui/Footer";
 import Navbar from "./ui/Navbar";
+import MoneyFinal from "../../public/moneyFinal.svg";
+import Image from "next/image";
 const LandingPage = ({ getUserData }) => {
   const transformPhoneNumber = (num) => {
     const phoneNumber = num.replace("+1", "");
@@ -15,8 +17,6 @@ const LandingPage = ({ getUserData }) => {
   const pageParams = Object.keys(getUserData?.verifications).map(
     (documentsReq) => documentsReq
   );
-
-  console.log(pageParams, "PAGE");
 
   return (
     <Box>
@@ -35,7 +35,7 @@ const LandingPage = ({ getUserData }) => {
           Help {getUserData?.branding.name} finalize your application.
         </Typography>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <img src="/moneyFinalized.png" alt="Money Lender" />
+          <Image src={MoneyFinal} alt="Money Lender" />
         </Box>
         <Box>
           <Typography
