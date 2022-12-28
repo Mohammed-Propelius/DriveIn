@@ -1,12 +1,25 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
-import Status from "./Status";
 
 const Chip = ({ title, status, active, handleClick }) => {
   return (
     <>
       <Box id="box-chip" sx={{ position: "relative", marginTop: "17px" }}>
-        <Status status={status} title={title} active={active} />
+        <Box
+          sx={{
+            width: "10px",
+            height: "10px",
+            backgroundColor:
+              status === "done" || status === "complete"
+                ? "#008350"
+                : "#D10929",
+            borderRadius: "10px",
+            position: "absolute",
+            top: "-5%",
+            right: "5%",
+            display: active === title ? "none" : "block",
+          }}
+        />
         <Box
           sx={{
             minWidth: "82px",

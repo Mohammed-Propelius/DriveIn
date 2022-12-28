@@ -6,7 +6,6 @@ const Footer = () => {
   const userBrand = useSelector(
     (state) => state.userDataInfo.userData.branding
   );
-  console.log(userBrand.name);
   return (
     <>
       <Box>

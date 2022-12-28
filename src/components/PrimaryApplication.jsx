@@ -2,7 +2,6 @@ import { Box, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { userInformation } from "../redux/Slice/userDataSlice";
 import DataField from "./DataField";
 import ButtonSecondary from "./ui/Button";
 import Chip from "./ui/Chip";
@@ -10,7 +9,6 @@ import Footer from "./ui/Footer";
 import Navbar from "./ui/Navbar";
 
 const PrimaryApplication = () => {
-  const dispatch = useDispatch();
   const router = useRouter();
   const chipData = useSelector(
     (state) => state.userDataInfo.userData.verifications
