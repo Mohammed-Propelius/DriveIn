@@ -67,6 +67,7 @@ const LandingPage = () => {
           <Box sx={{ marginLeft: "30px" }}>
             <Box
               sx={{
+                boxSizing: "border-box",
                 fontWeight: "600",
                 fontSize: "14px",
                 lineHeight: "28px",
