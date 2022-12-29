@@ -55,6 +55,7 @@ const DataField = () => {
                           fontWeight: "500",
                           fontSize: "14px",
                           lineHeight: "21px",
+                          color: "#161616",
                         }}
                       >
                         {activeField.requiredDocuments[doc].message
@@ -63,10 +64,18 @@ const DataField = () => {
                       </Typography>
                       <Box sx={{ display: "flex", gap: "10px" }}>
                         <AiOutlineCamera
-                          style={{ width: "30px", height: "30px" }}
+                          style={{
+                            width: "30px",
+                            height: "30px",
+                            color: "#161616",
+                          }}
                         />
                         <AiOutlineCloudUpload
-                          style={{ width: "30px", height: "30px" }}
+                          style={{
+                            width: "30px",
+                            height: "30px",
+                            color: "#161616",
+                          }}
                         />
                       </Box>
                     </Box>
