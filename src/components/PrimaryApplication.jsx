@@ -125,7 +125,12 @@ const PrimaryApplication = () => {
           </Box>
           <Box id="notReady-text" sx={{ paddingTop: "32px" }}>
             <Typography
-              sx={{ textAlign: "center", fontWeight: "400", fontSize: "11px" }}
+              sx={{
+                textAlign: "center",
+                fontWeight: "400",
+                fontSize: "11px",
+                lineHeight: "18px",
+              }}
             >
               Not ready? You can upload later
             </Typography>

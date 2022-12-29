@@ -21,7 +21,13 @@ const DataField = () => {
           (doc, amountOfOccurance) => (
             <Box key={doc}>
               <Box sx={{ marginTop: "20px", marginBottom: "12px" }}>
-                <Typography sx={{ fontSize: "16px", fontWeight: "700" }}>
+                <Typography
+                  sx={{
+                    fontSize: "16px",
+                    fontWeight: "700",
+                    lineHeight: "24px",
+                  }}
+                >
                   Your {docsFields(doc)}
                 </Typography>
               </Box>
