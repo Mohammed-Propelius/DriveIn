@@ -155,6 +155,7 @@ const PrimaryApplication = () => {
                 fontWeight: "700",
                 fontSize: "12px",
                 textAlign: "center",
+                lineHeight: "25px",
               }}
             >
               {transformPhoneNumber(userBrand.phone)}

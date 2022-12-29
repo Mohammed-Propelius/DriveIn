@@ -14,6 +14,7 @@ const Navbar = () => {
     width: "100%",
     marginTop: "10px",
     marginRight: "25px",
+    color: "#000000",
   };
   const noArrowStyle = {
     display: "flex",
