@@ -8,6 +8,7 @@ import Chip from "./ui/Chip";
 import Footer from "./ui/Footer";
 import Navbar from "./ui/Navbar";
 import { transformPhoneNumber } from "../utils/transformNumber";
+
 const PrimaryApplication = () => {
   const router = useRouter();
   const chipData = useSelector(
@@ -45,6 +46,7 @@ const PrimaryApplication = () => {
               lineHeight: "30px",
               marginLeft: "24px",
               marginBottom: "17px",
+              color: "#222222",
             }}
           >
             Upload or snap photos of your documents
